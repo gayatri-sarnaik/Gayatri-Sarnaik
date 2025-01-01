@@ -49,6 +49,7 @@
 
 ## 📬 Contact
 Let's connect and collaborate!  
-- 📧 **Email:** [Your Email Address]  
-- 🌐 **LinkedIn:** [Your LinkedIn Profile Link]  
-- 🖥️ **GitHub:** [Your GitHub Profile Link]  
+- 📧 **Email:** gayatrisarnaik25@gmail.com  
+- 🌐 **LinkedIn:** www.linkedin.com/in/vithal-naik-9a0876287  
+- 🖥️ **GitHub:** https://github.com/gayatri-sarnaik
+
