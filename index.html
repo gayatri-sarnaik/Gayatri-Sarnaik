@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Sunidhi Sharma</title>
+    <style>
+        body {
+            background-color: #321a04; /* Custom background color */
+            color: white; /* White text color */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            line-height: 1.6; /* Improved line spacing */
+        }
+
+        header {
+            background-color: #5a0914; /* Match header background with body background */
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+            position: fixed; /* Fix header on top */
+            width: 100%; /* Full width */
+            z-index: 1000; /* Ensure it stays above other content */
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav a {
+            color: #FFD700; /* Warm yellow color */
+            text-decoration: none;
+            transition: color 0.3s; /* Smooth transition for hover effect */
+            padding: 5px; /* Added padding for highlighting effect */
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: #FF9A36; /* Darker shade of yellow on hover or active */
+            border-bottom: 2px solid #FF9A36; /* Underline to highlight active section */
+        }
+
+        section {
+            padding-top: 80px; /* Space for fixed header */
+        }
+
+        .profile-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin: 60px 0; /* Increased margin for better spacing */
+        }
+
+        .profile-image {
+            border-radius: 50%; /* Circular profile picture */
+            width: 210px; /* Adjust size as needed */
+            height: 210px; /* Adjust size as needed */
+            margin-right: 10px;
+            border: 2px solid #FFD700; /* Border around profile picture */
+        }
+
+        h1 {
+            font-size: 28px; /* Increased font size for emphasis */
+            margin: 10px 0; /* Adjusted margin */
+            color: #FFD700; /* Warm yellow color for headings */
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 40px;
+            color: #FFD700; /* Warm yellow color for headings */
+        }
+
+        .about-container {
+            text-align: center;
+            margin: 40px 0; /* Spacing around About Me section */
+        }
+
+        .about-container h2 {
+            margin-bottom: 20px;
+        }
+
+        .about-container p {
+            margin: 0 20px; /* Margin for readability */
+        }
+
+        .projects-container {
+            display: block; /* Projects are displayed one below the other */
+            margin: 0 auto; /* Center content */
+            max-width: 800px; /* Set a maximum width for better readability */
+        }
+
+        .project {
+            display: flex; /* Changed to flex for horizontal layout */
+            align-items: center; /* Center items vertically */
+            margin-bottom: 20px; /* Space between projects */
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.1); /* Slightly transparent white background */
+            border-radius: 8px;
+            transition: transform 0.3s;
+            text-align: left; /* Left-align text */
+            text-decoration: none; /* Remove underline from link */
+        }
+
+        .project h3 {
+            color: #FFD700; /* Warm yellow for project headings */
+            margin-bottom: 10px; /* Spacing below heading */
+        }
+
+        .project p {
+            color: white; /* White color for project description */
+            margin: 0; /* No additional margin */
+        }
+
+        .project:hover {
+            transform: scale(1.05); /* Slight scale effect on hover */
+        }
+
+        .project-image {
+            width: 210px; /* Set a fixed width for project image */
+            height: 200px; /* Maintain aspect ratio */
+            border-radius: 8px; /* Rounded corners */
+            margin-right: 15px; /* Space between image and text */
+        }
+
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .filter-buttons button {
+            margin: 0 5px;
+            padding: 10px 15px; /* Added padding for buttons */
+            background-color: #FFD700; /* Warm yellow color for buttons */
+            border: none;
+            border-radius: 5px; /* Rounded corners for buttons */
+            cursor: pointer;
+            transition: background-color 0.3s; /* Smooth transition for hover effect */
+        }
+
+        .filter-buttons button:hover,
+        .filter-buttons button.selected {
+            background-color: #FF9A36; /* Darker shade of yellow on hover or selected */
+        }
+
+        .contact-info {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .download-button {
+            padding: 10px 15px; /* Added padding for button */
+            background-color: #FFD700; /* Warm yellow color for button */
+            border: none;
+            border-radius: 5px; /* Rounded corners for button */
+            cursor: pointer;
+            transition: background-color 0.3s; /* Smooth transition for hover effect */
+            margin-top: 10px; /* Margin above button */
+        }
+
+        .download-button:hover {
+            background-color: #FF9A36; /* Darker shade of yellow on hover */
+        }
+
+        footer {
+            text-align: center;
+            margin: 20px 0;
+            padding: 20px 0; /* Added padding for footer */
+            background-color: rgba(255, 255, 255, 0.1); /* Slightly transparent white background */
+        }
+
+        
+        .certificates {
+           display: flex;
+           flex-wrap: wrap;
+           gap: 20px; /* Adjusts space between items */
+       }
+
+        .certificate-row {
+             display: flex;
+             justify-content: space-around; /* Space items evenly */
+             width: 100%; /* Full width */
+        }
+
+       .certificate-item {
+            text-align: center; /* Centers the text below each image */
+            flex: 1; /* Flex item to fill space */
+        }
+
+        .certificate-image {
+           width: 200px; /* Adjust width as needed */
+           height: auto; /* Maintain aspect ratio */
+        }
+
+        .certificate-image:hover {
+            transform: scale(1.05); /* Slight scale effect on hover */
+        }
+
+        @media (max-width: 768px) {
+            .projects-container {
+                max-width: 100%; /* Make it full-width on small screens */
+            }
+
+            .profile-container {
+                flex-direction: column;
+            }
+
+            .profile-image {
+                margin-bottom: 20px; /* Space below the image on smaller screens */
+            }
+
+            .project {
+                flex-direction: column; /* Stack elements vertically on small screens */
+                align-items: center; /* Center items */
+            }
+
+            .project-image {
+                margin-bottom: 10px; /* Space below image on small screens */
+            }
+
+            .certificates {
+                flex-direction: column; /* Stack certificates vertically on small screens */
+                align-items: center; /* Center items */
+            }
+        }
+    </style>
+    <script>
+        function filterProjects(category) {
+            const projects = document.querySelectorAll('.project');
+            projects.forEach(project => {
+                if (category === 'all' || project.getAttribute('data-category') === category) {
+                    project.style.display = 'flex';
+                } else {
+                    project.style.display = 'none';
+                }
+            });
+            // Remove selected class from all buttons
+            const buttons = document.querySelectorAll('.filter-buttons button');
+            buttons.forEach(button => button.classList.remove('selected'));
+            // Add selected class to the clicked button
+            event.currentTarget.classList.add('selected');
+        }
+
+        // Highlight the current section in the navbar
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav a');
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+
+                if (pageYOffset >= sectionTop - sectionHeight / 3) {
+                    navLinks.forEach(link => link.classList.remove('active'));
+                    const activeLink = document.querySelector(`nav a[href="#${section.id}"]`);
+                    if (activeLink) {
+                        activeLink.classList.add('active');
+                    }
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home" class="active">HOME</a></li>
+                <li><a href="#about">ABOUT ME</a></li>
+                <li><a href="#projects">PROJECTS</a></li>
+                <li><a href="#certificates">AWARDS & CERTIFICATES</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <div class="profile-container">
+            <img src="gayu.jpg" alt="Profile Image" class="profile-image">
+            <div>
+                <h1>Hi, I am Gayatri Sarnaik</h1>
+                <h2>Your next analyst.</h2>
+                <h2>Welcome to my portfolio</h2>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="about-container">
+            <h2>ABOUT ME</h2>
+            <p>"Skilled data analyst with expertise in data visualization, statistical analysis, and predictive modeling.<br> Proficient in tools like Python, SQL, and Tableau to derive actionable insights and drive data-driven decisions.<br> Experienced in handling large datasets, optimizing workflows, and presenting findings to stakeholders."</p>
+            <br>
+            <p> My Key Skills include - </p>
+            <p> Advanced Excel </p>
+                <p>   Power BI </p>
+                    <p>   SQL Server Database Management</p>
+                        <p>   Python Programming</p>
+                            
+                                    
+                                        <p>   Strong Communication</p>
+                                        <br>
+                                       
+            <p> Explore my projects below to see how I have applied my skills on real-world data to solve complex problems and derived actionable insights to help businesses thrive. </p>
+        </div>
+    </section>
+
+
+    <section id="projects">
+        <h2>MY PROJECTS</h2>
+        <div class="filter-buttons">
+            <button onclick="filterProjects('all')" class="selected">All</button>
+            <button onclick="filterProjects('Excel')">Excel</button>
+            <button onclick="filterProjects('Power BI')">Power BI</button>
+            <!-- <button onclick="filterProjects('SQL')">SQL</button>
+            <button onclick="filterProjects('Python')">Python</button> -->
+        </div>
+        <div class="projects-container">
+            <a href="https://github.com/gayatri-sarnaik/Customer-Sales" class="project" data-category="Excel">
+                <img src="Customer Sales.png" alt="Project 1" class="project-image">
+                <div>
+                    <h3>"Customer Demographics and Sales Insights Dashboard"</h3>
+                    <p> This dashboard visualizes customer demographics and sales insights.<br> It includes gender, marital status, and age distributions, income by occupation and age, and bike purchase trends across regions and education levels.<br> Key comparisons reveal patterns in customer preferences, regional differences, and income distribution, helping businesses identify target markets and sales opportunities
+                        .</p>
+                </div>
+            </a>
+            <a href="https://github.com/gayatri-sarnaik/Road-Accident" class="project" data-category="Excel">
+                <img src="Road accident ss.png" alt="Project 1" class="project-image">
+                <div>
+                    <h3>"Road Accident Statistics and Trends Dashboard"</h3>
+                    <p>This dashboard analyzes road accident data, showcasing total casualties (fatal, serious, and slight) and key factors like vehicle type, road type, and surface conditions. It highlights urban vs. rural accidents, day vs.<br>night patterns, and monthly trends over two years, providing insights for targeted safety measures and accident prevention strategies.</p>
+                </div>
+            </a>
+            <a href="https://github.com/gayatri-sarnaik/Hospital-Patients-Records" class="project" data-category="Power BI">
+                <img src="Hospital patients records pbi.png" alt="Project 2" class="project-image">
+                <div>
+                    <h3>Hospital patient Rrcords</h3>
+                    <p>This dashboard provides an overview of hospital patient records, including total visits, average treatment time, cost per patient, and coverage details.<br> Key metrics include patient demographics, re-visit rates, mortality during procedures, and top reasons for visits.<br>Insights like insurance coverage and visit trends support hospital performance analysis and patient care improvements. </p>
+                </div>
+            </a>
+            <a href="https://github.com/gayatri-sarnaik/Real-Estate" class="project" data-category="Power BI">
+                <img src="Real estate pbi.png" alt="Project 2" class="project-image">
+                <div>
+                    <h3>Real Estate Insights</h3>
+                    <p>This dashboard showcases housing price trends across Bangladesh, including price distribution by floors, bedrooms, and cities.<br>It highlights key metrics like Dhaka apartment counts, top-priced houses, and vacant properties by city.<br> data provides a comprehensive view for real estate decision-making and market analysis. </p>
+                </div>
+            </a>
+            
+
+
+            <!-- Add more projects as needed -->
+        </div>
+    </section>
+
+    <section id="certificates">
+        <h2>AWARDS & CERTIFICATES</h2>
+        <div class="certificates">
+            <div class="certificate-row">
+                <div class="certificate-item">
+                    <a href="PwC Internship Cerificate.jpg">
+                        <img src="excel certificate.png" alt="Certificate 1" class="certificate-image">
+                    </a>
+                    <p>Excel Certificate</p>
+                </div>
+                <div class="certificate-item">
+                    <a href="Unified Mentors Internship Cerificate.jpg">
+                        <img src="sql certificate.png" alt="Certificate 2" class="certificate-image">
+                    </a>
+                    <p>sql certificate</p>
+                </div>
+                <div class="certificate-item">
+                    <a href="Power BI.jpg">
+                        <img src="powerbi-certificate.png" alt="Certificate 3" class="certificate-image">
+                    </a>
+                    <p>Power BI Certificate</p>
+                </div>
+            </div>
+        
+        <!--
+            <div class="certificate-row">
+                <div class="certificate-item">
+                    <a href="ML Certificate.jpg">
+                        <img src="ML Certificate.jpg" alt="Certificate 7" class="certificate-image">
+                    </a>
+                    <p>Machine Learning Certificate</p>
+                </div>
+                <div class="certificate-item">
+                    <a href="DS Certificate.jpg">
+                        <img src="DS Certificate.jpg" alt="Certificate 8" class="certificate-image">
+                    </a>
+                    <p>Data Science Certificate</p>
+                </div>
+                <div class="certificate-item">
+                    <a href="certificate9_link.html">
+                        <img src="certificate9_image.jpg" alt="Certificate 9" class="certificate-image">
+                    </a>
+                    <p>Certificate 9 Title</p>
+                </div>
+            </div>
+            <div class="certificate-row">
+                <div class="certificate-item">
+                    <a href="certificate10_link.html">
+                        <img src="certificate10_image.jpg" alt="Certificate 10" class="certificate-image">
+                    </a>
+                    <p>Certificate 10 Title</p>
+                </div>
+                <div class="certificate-item">
+                    <a href="certificate11_link.html">
+                        <img src="certificate11_image.jpg" alt="Certificate 11" class="certificate-image">
+                    </a>
+                    <p>Certificate 11 Title</p>
+                </div>
+                <div class="certificate-item">
+                    <a href="certificate12_link.html">
+                        <img src="certificate12_image.jpg" alt="Certificate 12" class="certificate-image">
+                    </a>
+                    <p>Certificate 12 Title</p>
+                </div>
+            </div>
+        -->
+        </div>
+    </section>
+    
+    <section id="contact">
+        <section id="contact">
+            <h2>CONTACT</h2>
+            <div class="contact-info">
+                <div>
+                    <a href="gayatrisarnaik25@gmail.com" style="text-decoration: none; color: white;">
+                        <img src="Igmail.png" alt="Email" style="width: 30px; vertical-align: top; margin-right: 10px; margin-bottom: 20px;">
+                        gayatrisarnaik25@gmail.com
+                    </a>
+                </div>
+                <div>
+                    <a href="www.linkedin.com/in/vithal-naik-9a0876287" target="_blank" style="text-decoration: none; color: white;">
+                        <img src="Ilinkedin.png" alt="LinkedIn" style="width: 30px; vertical-align: top; margin-right: 10px; margin-bottom: 20px;">
+                        LinkedIn Profile
+                    </a>
+                </div>
+                <div>
+                    <a href="https://github.com/gayatri-sarnaik" target="_blank" style="text-decoration: none; color: white;">
+                        <img src="github.png" alt="GitHub" style="width: 30px; vertical-align: top; margin-right: 10px;  margin-bottom: 20px;">
+                        GitHub Profile
+                    </a>
+                </div>
+                <button class="download-button" onclick="window.location.href='GayatriSarnaik.pdf'">Download Resume</button>
+            </div>
+        </section>
+
+    <footer>
+        <p>&copy; 2024 Gayatri Sarnaik. All rights reserved.</p>
+    </footer>
+</body>
+</html>
